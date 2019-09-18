@@ -1,0 +1,159 @@
+Database:
+  #Ativar o uso do mysql? | Caso esteja em "false" você não vai precisar preencher as informações e o plugin irá usar o sqlite.
+  mysql: false
+  #Informações do mysql
+  hostname: "localhost"
+  port: 3306
+  database: "database"
+  username: "root"
+  password: "password"
+  table: "stx1"
+
+#Configurações do plugin
+Config:
+  permissao: "stx1.admin" #Permissão para usar os comandos de admin
+  custo: 1000 #Custo para desafiar
+  premio: 2000 #Prêmio para o vencedor do x1
+  delayParaIniciar: 5 #O tempo para iniciar o x1 após todos serem teleportados | EM SEGUNDOS
+  delayConvite: 60 #O tempo que vai demorar para o convite expirar | EM SEGUNDOS
+  delayPartida: 10 #O tempo que vai demorar para uma partida acabar | EM MINUTOS
+  delayRecolher: 15 #O tempo para a pessoa recolher os itens | EM SEGUNDOS
+  comandos: #Comandos que podem ser executados durante uma partida
+    - /g
+    - /.
+    - /tell
+  infoGUI: #Gui do comando /x1 info (Nick)
+    guiNome: "&aInformacoes" #Nome do gui
+    guiSlots: 3 #Quantidade de rows que o baú terá (Rows = linhas)
+    partidas: #Quantia de partidas que a pessoa já jogou
+      nome: "&aPartidas"
+      id: 1 #Id do Item
+      lore:
+        - ''
+        - '&fEssa pessoa jogou &b{partidas} &fpartidas'
+        - ''
+      slot: 11
+    venceu: #Quantia de partidas vencidas
+      nome: "&aVenceu"
+      id: 2
+      lore:
+        - ''
+        - '&fEssa pessoa venceu &b{venceu} &fpartidas'
+        - ''
+      slot: 13
+    perdeu: #Quantia de partidas perdidas
+      nome: "&aPerdeu"
+      id: 3
+      lore:
+        - ''
+        - '&fEssa pessoa perdeu &b{perdeu} &fpartidas'
+        - ''
+      slot: 15
+  ativarActionBar: true #Ativar mensagens por actionbar? | Se estiver em true quer dizer que está ativado, caso não queira coloque false
+  ativarTitle: true #Ativar mensagens por title? | Se estiver em true quer dizer que está ativado, caso não queira coloque false
+
+#Mensagens do plugin
+#
+#Mensagens de erro
+ErrosMsg:
+  somenteInGame: "&cEste comando so pode ser executado in-game."
+  semPermissao: "&cVoce nao possui permissao para fazer isso."
+  pessoaOffline: "&cEssa pessoa esta offline."
+  siMesmo: "&cVoce nao pode fazer isso a si mesmo(a)"
+  semArgsDesafiar: "&cUtilize /x1 desafiar (Nick)"
+  semArgsAceitar: "&cUtilize /x1 aceitar (Nick)"
+  semArgsRecusar: "&cUtilize /x1 recusar (Nick)"
+  semArgsInfo: "&cUtilize /x1 info (Nick)"
+  semMoneyPlayer: "&cVoce nao tem dinheiro suficiente para fazer isso."
+  semMoneyPlayer2: "&cEssa pessoa nao tem money suficiente."
+  player2JaTemPedido: "&cEssa pessoa ja tem um pedido de x1 pendente."
+  player1JaTemPedido: "&cVoce ja tem um pedido de x1 pendente."
+  player2JaLutando: "&cEssa pessoa ja esta em um x1."
+  player2NaoConvidou: "&cEssa pessoa nao te convidou para um x1!"
+  cmdBloqueado: "&cEsse comando so pode ser executado fora do x1."
+  x1NaoEncontrado: "&cEsta pessoa nao esta em um x1."
+
+#Mensagens normais
+Mensagens:
+  #Mensagens de sucesso
+  localSetado: "&aO local &f{local} &afoi setado com sucesso!"
+  recusouPlayer: "&c{player2} recusou seu pedido de x1!"
+  venceuPlayer: "&aVoce venceu o x1 e ganhou {premio}"
+  conviteSucesso: "&aConvite enviado para {player2} com sucesso!"
+  convitePlayer2: "&cVoce recebeu um pedido de x1, digite /x1 aceitar (Nick) para aceitar"
+  #List | Mensagens que contém lista
+  empateEveryone:
+    - ''
+    - '&b[ST-X1] &f{player2} empatou com {player1}'
+    - ''
+  venceuEveryone:
+    - ''
+    - '&b[ST-X1] &f{player1} venceu o x1 contra {player2}'
+    - ''
+  venceuBotEveryone:
+    - ''
+    - '&b[ST-X1] &f{player1} venceu o x1 contra um bot!'
+    - ''
+  perdeuBotEveryone:
+    - ''
+    - '&b[ST-X1] &f{player1} perdeu um x1 contra um bot!'
+    - '&eCONTRA UM BOT'
+    - '&7Ruim d+ kkkkkkkkkkkkkkkkkkkkkkkkkkkkk'
+    - ''
+  iniciouX1BotEveryone:
+    - ''
+    - '&b[ST-X1] &f{player1} iniciou um x1 contra um bot!'
+    - ''
+  aceitouEveryone:
+    - ''
+    - '&b[ST-X1] &f{player1} aceitou o pedido de {player2}'
+    - ''
+  conviteEnviadoEveryone:
+    - ''
+    - '&b[ST-X1] &f{player1} desafiou {player2} para um x1!'
+    - ''
+  recusouPlayerEveryone:
+    - ''
+    - '&b[ST-X1] &f{player2} recusou o pedido de x1 de {player1}'
+    - ''
+  argsHelpPlayer:
+    - ""
+    - "&b&lST-X1 &7- &fComandos"
+    - ""
+    - "&a/x1 desafiar &7- &fDesafia alguém"
+    - "&a/x1 aceitar &7- &fAceita o pedido e x1"
+    - "&a/x1 recusar &7- &fRecusa o pedido de x1"
+    - "&a/x1 camarote &7- &fVá para o camarote de algum x1"
+    - "&a/x1 info &7- &fVeja informações sobre alguém"
+    - ""
+    - "&a/x1 bot &7- &fLute contra um bot"
+    - ""
+  argsHelpAdmin:
+    - ""
+    - "&b&lST-X1 &7- &fComandos"
+    - ""
+    - "&a/x1 desafiar &7- &fDesafia alguém"
+    - "&a/x1 aceitar &7- &fAceita o pedido e x1"
+    - "&a/x1 recusar &7- &fRecusa o pedido de x1"
+    - "&a/x1 camarote &7- &fVá para o camarote de algum x1"
+    - "&a/x1 info &7- &fVeja informações sobre alguém"
+    - ""
+    - "&a/x1 bot &7- &fLute contra um bot"
+    - ""
+    - "&c/x1 setsaida &7- &fSeta a saida do x1"
+    - "&c/x1 setcamarote &7- &fSeta o camarote"
+    - "&c/x1 setloc1 &7- &fSeta o local 1"
+    - "&c/x1 set &7- &fSeta o local 2"
+    - ""
+
+#Mensagens no actionbar
+ActionBarMsgs:
+  delayParaIniciar: "&aIniciando X1 em &f{tempo} &asegundos"
+
+#Mensagens no title
+TitleMsg:
+  titulo: "&aX1 iniciado"
+  subtitulo: "&fBoa sorte!"
+
+#Não mexa em nada daqui em diante.
+Locais:

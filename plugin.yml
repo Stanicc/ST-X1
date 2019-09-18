@@ -1,0 +1,8 @@
+name: ST-X1
+version: 1.0
+author: Stanic
+main: stanic.stx1.Main
+softdepend:
+  - Citizens
+commands:
+  x1:
